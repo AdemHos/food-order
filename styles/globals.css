@@ -41,3 +41,15 @@ html {
 .container {
   @apply container
 }
+
+.slick-dots {
+  @apply !flex justify-start w-full;
+}
+
+.slick-dots .slick-active div {
+  @apply bg-primary;
+}
+
+.slick-dots div {
+  @apply !m-0 !mt-8;
+}

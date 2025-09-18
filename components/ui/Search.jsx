@@ -1,6 +1,7 @@
 import OutsideClickHandler from "react-outside-click-handler";
 import Title from "../ui/Title";
 import Image from "next/image";
+import { IoClose } from "react-icons/io5";
 
 const Search = ({ setIsSearchModal }) => {
   return (
@@ -10,7 +11,7 @@ const Search = ({ setIsSearchModal }) => {
     >
       <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
         <div className="grid place-content-center w-full h-full">
-          <div className="relative z-50 w-[600px] h-[600px] bg-white p-5 border-2 rounded-md">
+          <div className="relative z-50 md:w-[600px] w-[370px]  bg-white p-10 border-2 rounded-2xl">
             <Title addClass={"text-[30px] text-center"}>Search</Title>
             <input
               type="text"
@@ -68,6 +69,9 @@ const Search = ({ setIsSearchModal }) => {
                   <span className="font-bold">10$</span>
                 </li>
               </ul>
+              <button onClick={() => setIsSearchModal(false)} className="absolute top-3 right-3 ">
+                <IoClose size={24} className="hover:text-primary transition-all"/>
+              </button>
             
           </div>
         </div>
