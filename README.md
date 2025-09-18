@@ -14,4 +14,4 @@ Mongo DB
 Header and Search components has created.
 Search modal has includes an input field and searched item list
 
-![Header Image](/images/Header.png)
+![Header](./public/images/Header.png)
