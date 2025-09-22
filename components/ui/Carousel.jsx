@@ -58,7 +58,7 @@ const Carousel = () => {
               autem perferendis? Eveniet atque commodi libero at voluptates,
               explicabo quos ipsam hic minima iste optio?
             </p>
-            <button className="px-[30px] py-[8px] bg-primary text-white hover:bg-orange-600 rounded-2xl">
+            <button className="px-[30px] py-[8px] bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">
               Order Now
             </button>
           </div>

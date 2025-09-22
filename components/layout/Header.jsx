@@ -58,7 +58,7 @@ const Header = () => {
             <FaSearch />
           </a>
           <a href="" className="md:inline-block hidden">
-            <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 rounded-2xl">
+            <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">
               Order Now
             </button>
           </a>
