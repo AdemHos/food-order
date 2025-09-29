@@ -8,6 +8,7 @@ import Carousel from '@/components/ui/Carousel'
 import React from 'react'
 import Customers from '@/components/customers/Customers'
 
+
 const index = () => {
   return (
     <div className=''>
@@ -17,6 +18,7 @@ const index = () => {
       <About/>
       <Reservation/>
       <Customers/>
+     
       
     </div>
   )

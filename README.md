@@ -55,5 +55,10 @@ In this part of the project, the react slick package was used, as in the header 
 
 ![Customers Section](/public/images/ss-8.png)
 
+## Footer Component
+Footer component has created. Users has can reach social media links
+and addresses.
+![Footer Component](public/images/ss-9.png)
+
 
 
