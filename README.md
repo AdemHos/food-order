@@ -46,5 +46,14 @@ Clients has can online booking their meals
 Clients has can  online booking any time from any where.
 On the other side clients would like to come restaurant,
 They can direct address of restaurant on the map.
+Formik and Yup form validation packages has added in project.
 
 ![Booking Section](/public/images/ss-6.png)
+
+## Testimonials / Clients Review
+In this part of the project, the react slick package was used, as in the header section.
+
+![Customers Section](/public/images/ss-8.png)
+
+
+

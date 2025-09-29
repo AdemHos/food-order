@@ -26,7 +26,7 @@ const Carousel = () => {
     <div className="h-screen -mt-[88px] container mx-auto">
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="relative w-full h-full">
-          <Image src={"/images/slider-1.jpg"} layout="fill" objectFit="cover" />
+          <Image src={"/images/slider-1.jpg"} fill style={{objectFit: "cover"}} />
         </div>
       </div>
       {/* Slider */}

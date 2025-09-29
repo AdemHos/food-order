@@ -8,7 +8,7 @@ const MenuItem = () => {
      <div className='w-full bg-white grid place-content-center h-[210px] rounded-tl-2xl
      rounded-tr-2xl rounded-bl-[46px]'>
         <div className='relative w-36 h-36 hover:scale-110 transition-all  '>
-        <Image src={'/images/burger.png'} alt='' layout='fill' objectFit='cover'/>
+        <Image src={'/images/burger.png'} alt='' fill style={{objectFit: "cover"}}/>
      </div>
      </div>
      <div className='p-[25px] text-white'>

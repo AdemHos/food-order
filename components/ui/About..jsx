@@ -7,7 +7,7 @@ const About = () => {
       <div className="container mx-auto flex items-center text-white gap-20 justify-center flex-wrap-reverse">
         <div className="flex justify-center">
           <div className="relative sm:w-[445px] sm-h-[600px]  flex justify-center w-[300px] h-[450px]">
-            <Image src="/images/about-img.png" alt="" layout="fill" />
+            <Image src="/images/about-img.png" alt="" fill  />
           </div>
         </div>
         <div className="md:w-1/2 ">
@@ -20,7 +20,7 @@ const About = () => {
             need to be sure there isn`t anything embarrassing hidden in the
             middle of text. All
           </p>
-          <button className="btn-primary">Read More</button>
+          <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Read More</button>
         </div>
       </div>
     </div>
