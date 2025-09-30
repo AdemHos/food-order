@@ -4,6 +4,7 @@ import { useState } from "react";
 import Search from "../ui/Search";
 import { IoClose } from "react-icons/io5";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const router = useRouter()
@@ -21,16 +22,16 @@ const Header = () => {
         >
           <ul className="flex gap-4 sm:flex-row flex-col items-center">
             <li className="px-[5px] py-[20px] uppercase hover:text-primary font-mono font-bold">
-              <a href="#">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li className="px-[5px] py-[20px] uppercase hover:text-primary font-mono font-bold">
-              <a href="#">Menu</a>
+              <Link href="/menu">Menu</Link>
             </li>
             <li className="px-[5px] py-[20px] uppercase hover:text-primary font-mono font-bold">
-              <a href="#">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li className="px-[5px] py-[20px] uppercase hover:text-primary font-mono font-bold">
-              <a href="#">Book Table</a>
+              <Link href="booking">Book Table</Link>
             </li>
           </ul>
           {isMenuModal && (
@@ -44,9 +45,9 @@ const Header = () => {
         </nav>
 
         <div className="flex gap-x-4 items-center ">
-          <a href="#" className="px-[5px] py-[20px] hover:text-primary">
+          <Link href="/auth/Login" className="px-[5px] py-[20px] hover:text-primary">
             <FaRegUser />
-          </a>
+          </Link>
           <a href="" className="px-[5px] py-[20px] hover:text-primary">
             <FaShoppingCart />
           </a>
