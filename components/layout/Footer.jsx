@@ -9,17 +9,17 @@ const Footer = () => {
           <div className="md:flex-1">
             <Title addClass="text-[30px]">Contact Us</Title>
             <div className="flex flex-col gap-y-2 mt-3">
-              <div>
-                <FaLocationDot className="mx-20"/>
-                <span className="inline-block ml-2">Location</span>
+              <div className="flex items-center gap-4">
+                <FaLocationDot className="mx-10"/>
+                <span className="inline-block ">Location</span>
               </div>
-              <div>
-                <FaPhone className="mx-20"/>
-                <span className="inline-block ml-2">Call +01 1234567890</span>
+              <div className="flex items-center gap-4">
+                <FaPhone className="mx-10"/>
+                <span className="inline-block ">Call +01 1234567890</span>
               </div>
-              <div>
-                <FaEnvelopeOpen className="mx-20"/>
-                <span className="inline-block ml-2">demo@gmail.com</span>
+              <div className="flex items-center gap-4">
+                <FaEnvelopeOpen className="mx-10"/>
+                <span className="inline-block ">demo@gmail.com</span>
               </div>
             </div>
           </div>

@@ -48,9 +48,9 @@ const Header = () => {
           <Link href="/auth/Login" className="px-[5px] py-[20px] hover:text-primary">
             <FaRegUser />
           </Link>
-          <a href="" className="px-[5px] py-[20px] hover:text-primary">
+          <Link href="/cart" className="px-[5px] py-[20px] hover:text-primary">
             <FaShoppingCart />
-          </a>
+          </Link>
           <a
             href="#"
             onClick={() => setIsSearchModal(true)}

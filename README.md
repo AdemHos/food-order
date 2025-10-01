@@ -86,3 +86,24 @@ He/She can manage to orders on one panel with easily
 ### Admin Login Page Screen Shot
 
 ![Admin Login Page](public/images/ss-12.png)
+
+### Cart Page and Order Page 
+Both pages has created. User has been create
+an order then User can manage the orders easily
+On the other hand user can count orders total price mount,
+and can be add discount to orders.
+
+![Cart Page](public/images/ss-13.png)
+
+#### Orders Page
+Manage the order processing, Payment,Prepare,On the way and Delivering
+User can manage all of these phases at one page much more easy.
+
+![Order Page](public/images/ss-14.png)
+
+### Profile Settings
+User can manage the profile  on this page too easy.
+She/He has been update the settings any time any where.
+
+![Profile Page](public/images/ss-15.png)
+
