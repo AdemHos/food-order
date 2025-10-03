@@ -82,7 +82,7 @@ const Account = () => {
                 onChange={handleChange}/>
             ))}
          </div>
-         <button className="px-[30px] py-[8px]  bg-primary mt-4 text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Update</button>
+         <button type="submit" className="px-[30px] py-[8px]  bg-primary mt-4 text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Update</button>
         </form>
     </div>
   )

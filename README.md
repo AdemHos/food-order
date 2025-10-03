@@ -107,3 +107,9 @@ She/He has been update the settings any time any where.
 
 ![Profile Page](public/images/ss-15.png)
 
+### Admin Panel
+Admins has can manage orders,products. They can add products,categories, update them and delete them
+on the other hand Admins can see orders from order page they can manage all of order phases easily on the one page 
+
+![Admin Page](public/images/ss-16.png)
+

@@ -2,6 +2,7 @@ import Title from "../ui/Title"
 import Input from "../form/Input"
 import { useFormik } from 'formik'
 import { registerSchema } from "@/schema/register"
+import { newPasswordSchema } from "@/schema/newPassword"
 
 const Password = () => {
     const onSubmit = async (values, actions) => {
@@ -16,7 +17,7 @@ const Password = () => {
             confirmPassword: "",
           },
           onSubmit,
-          validationSchema: registerSchema,
+          validationSchema: newPasswordSchema,
         });
     
       const inputs = [
