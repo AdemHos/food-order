@@ -5,11 +5,13 @@ import Search from "../ui/Search";
 import { IoClose } from "react-icons/io5";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const router = useRouter()
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isMenuModal, setIsMenuModal] = useState(false);
+  const cart = useSelector((state) => state.cart)
   return (
     <div className={`h-[5.5rem] relative z-50 ${router.asPath === '/' ? "bg-transparent" : "bg-secondary"}`}>
       <div className="container mx-auto flex justify-between items-center text-white h-full">
@@ -48,8 +50,11 @@ const Header = () => {
           <Link href="/auth/Login" className="px-[5px] py-[20px] hover:text-primary">
             <FaRegUser />
           </Link>
-          <Link href="/cart" className="px-[5px] py-[20px] hover:text-primary">
+          <Link href="/cart" className="px-[5px] py-[20px] hover:text-primary relative">
             <FaShoppingCart />
+            <span className="w-5 h-5 grid place-content-center bg-primary text-black text-center text-sm rounded-full absolute top-2 -right-2">
+                {cart.products.length === 0 ? "0" : cart.products.length}
+            </span>
           </Link>
           <a
             href="#"

@@ -3,9 +3,11 @@ import Link from "next/link";
 import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { loginSchema } from "../../schema/login";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import {  FaGoogle } from "react-icons/fa6";
+import {useSession,signIn} from 'next-auth/react'
 
 const Login = () => {
+  const {data:session} = useSession()
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 4000));
     actions.resetForm();
@@ -40,6 +42,7 @@ const Login = () => {
       touched: touched.password,
     },
   ];
+  console.log(session)
 
   return (
     <div className="container mx-auto">
@@ -60,7 +63,7 @@ const Login = () => {
         </div>
         <div className="flex flex-col w-full gap-y-3 mt-6">
           <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Login</button>
-          <button className="px-[30px] py-[8px] flex items-center justify-center gap-x-5 bg-secondary text-white hover:opacity-90 transition-all cursor-pointer rounded-2xl">
+          <button type="button" onClick={() =>signIn('google')} className="px-[30px] py-[8px] flex items-center justify-center gap-x-5 bg-secondary text-white hover:opacity-90 transition-all cursor-pointer rounded-2xl">
             <FaGoogle/>
             Login with Google
           </button>
