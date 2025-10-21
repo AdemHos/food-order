@@ -28,7 +28,7 @@ export default NextAuth({
         return baseUrl + "/"
     },
 
-    async session({session,token,user}) {
+    async session({session,user}) {
         
         session.user.image = session.user.image;
         session.user.email = session.user.email;

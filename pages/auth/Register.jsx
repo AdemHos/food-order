@@ -2,13 +2,24 @@ import { useFormik } from "formik";
 import Link from "next/link";
 import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
-import { loginSchema } from "../../schema/login";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import axios from "axios";
+import { registerSchema } from "@/schema/register";
+import { toast } from "react-toastify";
 
-const Login = () => {
+const Register = () => {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm();
+    
+    try {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users/register`,values);
+      if(res.status === 200) {
+        toast.success("User created successfully")
+      }
+    } catch (error) {
+      toast.error("Somthing went wrong")
+      console.log(error)
+    }
+    // await new Promise((resolve) => setTimeout(resolve, 4000));
+    // actions.resetForm();
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -19,7 +30,7 @@ const Login = () => {
         confirmPassword: "",
       },
       onSubmit,
-      validationSchema: loginSchema,
+      validationSchema: registerSchema,
     });
 
   const inputs = [
@@ -55,9 +66,9 @@ const Login = () => {
       name: "confirmPassword",
       type: "password",
       placeholder: "Confirm Password",
-      value: values.password,
-      errorMessage: errors.password,
-      touched: touched.password,
+      value: values.confirmPassword,
+      errorMessage: errors.confirmPassword,
+      touched: touched.confirmPassword,
     },
   ];
 
@@ -79,7 +90,7 @@ const Login = () => {
           ))}
         </div>
         <div className="flex flex-col w-full gap-y-3 mt-6">
-          <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Sign Up</button>
+          <button type="submit" className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Sign Up</button>
           <Link href="/auth/Login">
             <span className="text-sm  cursor-pointer text-secondary hover:text-orange-600">
               Do you have a account allready ?
@@ -91,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default Register
