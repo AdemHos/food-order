@@ -2,21 +2,27 @@ import Title from "../ui/Title"
 import Input from "../form/Input"
 import { useFormik } from 'formik'
 import { profileSchema } from '@/schema/profile'
+import axios from "axios"
 
-const Account = () => {
+const Account = ({user}) => {
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
+       try {
+        const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`)
+       } catch (error) {
+        console.log(error)
+       }
         actions.resetForm();
       };
     
       const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
           initialValues: {
-            fullName: "",
-            phoneNumber: "",
-            email: "",
-            persons: "",
-            date: "",
+            fullName: user?.fullName,
+            phoneNumber: user?.phoneNumber,
+            email: user?.email,
+            address:user?.address,
+            job: user?.job ,
+            bio:user?.bio,
           },
           onSubmit,
           validationSchema: profileSchema,

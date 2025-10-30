@@ -4,13 +4,27 @@ import Input from "../../components/form/Input";
 import Title from "../../components/ui/Title";
 import { loginSchema } from "../../schema/login";
 import {  FaGoogle } from "react-icons/fa6";
-import {useSession,signIn} from 'next-auth/react'
+import {useSession,signIn,getSession} from 'next-auth/react'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const Login = () => {
+  const [currentUser,setCurrentUser] = useState()
+
+  const {push} = useRouter()
+
   const {data:session} = useSession()
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 4000));
-    actions.resetForm();
+    const {email,password} = values;
+    let options = {redirect:false,email,password}
+    try {
+      const res = await signIn("credentials",options)
+      actions.resetForm();
+    } catch (error) {
+      console.log(error)
+    }
+    
   };
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
@@ -21,6 +35,21 @@ const Login = () => {
       onSubmit,
       validationSchema: loginSchema,
     });
+
+    useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        setCurrentUser(
+          res.data?.find((user) => user.email === session?.user?.email)
+        );
+        session && push("/profile/" + currentUser?._id);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, [session, push, currentUser]);
 
   const inputs = [
     {
@@ -62,7 +91,7 @@ const Login = () => {
           ))}
         </div>
         <div className="flex flex-col w-full gap-y-3 mt-6">
-          <button className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Login</button>
+          <button type="submit" className="px-[30px] py-[8px]  bg-primary text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Login</button>
           <button type="button" onClick={() =>signIn('google')} className="px-[30px] py-[8px] flex items-center justify-center gap-x-5 bg-secondary text-white hover:opacity-90 transition-all cursor-pointer rounded-2xl">
             <FaGoogle/>
             Login with Google
@@ -77,5 +106,25 @@ const Login = () => {
     </div>
   );
 };
+
+export async function getServerSideProps({req}) {
+  const session = await getSession({req})
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`)
+   const user = res.data?.find((user) => user.email === session?.user.email);
+
+
+  if(session && user) {
+    return {
+      redirect: {
+        destination: "/profile/"+user._id,
+        permanent: false
+      }
+    }
+    
+  }
+  return {
+      props: {}
+    }
+}
 
 export default Login

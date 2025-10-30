@@ -12,7 +12,7 @@ const MenuItem = ({ imgSrc, prodName, price }) => {
       >
         <Link href={'/products'}>
           <div className="relative w-36 h-36 hover:scale-110 transition-all  ">
-            <Image src={imgSrc} alt="" fill style={{ objectFit: "cover" }} />
+            <Image src={imgSrc} alt="" fill style={{ objectFit: "cover"  }} priority />
           </div>
         </Link>
       </div>

@@ -3,10 +3,15 @@ import Input from "../form/Input"
 import { useFormik } from 'formik'
 import { registerSchema } from "@/schema/register"
 import { newPasswordSchema } from "@/schema/newPassword"
+import axios from "axios"
 
-const Password = () => {
+const Password = ({user}) => {
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
+        try {
+          const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`)
+        } catch (error) {
+          console.log(error)
+        }
         actions.resetForm();
       };
     
@@ -32,7 +37,7 @@ const Password = () => {
         },
         {
           id: 2,
-          name: "confirm",
+          name: "confirmPassword",
           type: "password",
           placeholder: "Confirm Password",
           value: values.confirmPassword,
@@ -54,7 +59,7 @@ const Password = () => {
                 onChange={handleChange}/>
             ))}
          </div>
-         <button className="px-[30px] py-[8px]  bg-primary mt-4 text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Update</button>
+         <button type="submit" className="px-[30px] py-[8px]  bg-primary mt-4 text-white hover:bg-orange-600 transition-all cursor-pointer rounded-2xl">Update</button>
         </form>
     </div>
   )
